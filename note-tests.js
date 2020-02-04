@@ -10,7 +10,6 @@ testIsString();
 function testHasArray(){
   let noteBook = new newNoteBook
   let notes = noteBook.storage
-  let notesArray = []
   assert.isTrue(typeof notes === 'object')
 };
 testHasArray();
