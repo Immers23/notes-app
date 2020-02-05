@@ -25,12 +25,12 @@ teststoresNotesInArray();
 
 function testconverttoHTML(){
   let noteBook = new NoteBook
-  let note = new Note("Some Random note")
-  let note2 = new Note("Another Random note")
+  let note = new Note("Some Random note that is way over 20 charecters")
+  let note2 = new Note("Another Random note that is also way over 20 charecters")
   noteBook.saveNotes(note)
   noteBook.saveNotes(note2)
 
-  n = "<ul><li><div>Some Random note</div></li><li><div>Another Random note</div></li></ul>"
+  n = "<ul><li><div>Some Random note tha</div></li><li><div>Another Random note </div></li></ul>"
   assert.isTrue(noteBook.converttoHTML() === n )
 };
 testconverttoHTML()
@@ -46,7 +46,7 @@ function testNoteController(){
   controller.saveNotes("another controller test")
   let n = controller.insertion()
 
-  assert.isTrue(fakeElement.innerHTML === "<ul><li><div>controller test</div></li><li><div>another controller test</div></li></ul>")
+  assert.isTrue(fakeElement.innerHTML === "<ul><li><div>controller test</div></li><li><div>another controller t</div></li></ul>")
 
 };
 testNoteController()
