@@ -1,6 +1,6 @@
 
 function testIsString(){
-  let n = new newNote("Hello World")
+  let n = new Note("Hello World")
   let t = n.text
   assert.isTrue(typeof t === 'string')
   assert.isTrue(n.text === "Hello World")
@@ -8,14 +8,14 @@ function testIsString(){
 testIsString();
 
 function testHasArray(){
-  let noteBook = new newNoteBook
+  let noteBook = new NoteBook
   let notes = noteBook.storage
   assert.isTrue(typeof notes === 'object')
 };
 testHasArray();
 
 function teststoresNotesInArray(){
-  let noteBook = new newNoteBook
+  let noteBook = new NoteBook
   let note = "some random note to test"
   noteBook.saveNotes(note)
   let n = noteBook.storage
@@ -24,9 +24,9 @@ function teststoresNotesInArray(){
 teststoresNotesInArray();
 
 function testconverttoHTML(){
-  let noteBook = new newNoteBook
-  let note = new newNote("Some Random note")
-  let note2 = new newNote("Another Random note")
+  let noteBook = new NoteBook
+  let note = new Note("Some Random note")
+  let note2 = new Note("Another Random note")
   noteBook.saveNotes(note)
   noteBook.saveNotes(note2)
 
@@ -41,7 +41,7 @@ function testNoteController(){
   fakeElement.innerHTML = "string"
   var body = document.getElementsByTagName("body")
   body.item(0).appendChild(fakeElement)
-  let controller = new NoteController(new newNoteBook)
+  let controller = new NoteController(new NoteBook)
   controller.saveNotes("controller test")
   controller.saveNotes("another controller test")
   let n = controller.insertion()
@@ -50,3 +50,11 @@ function testNoteController(){
 
 };
 testNoteController()
+
+function testSingleNoteView() {
+  let note = new Note("string")
+  let singleNoteView = new SingleNoteView(note)
+  assert.isTrue(singleNoteView.noteHTML() === `<div>${note.notes()}</div>`)
+
+}
+testSingleNoteView()

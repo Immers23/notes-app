@@ -16,8 +16,8 @@
   }
 
   Note.prototype.notes = function(){ return this.text }
-  
-  exports.newNote = Note
-  exports.newNoteBook = NoteBook
+
+  exports.Note = Note
+  exports.NoteBook = NoteBook
 
 })(this);

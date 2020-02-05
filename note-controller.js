@@ -7,7 +7,7 @@ function NoteController (noteBook){
 
 NoteController.prototype.saveNotes = function(text){
 
-  this.noteBook.saveNotes(new newNote(text))
+  this.noteBook.saveNotes(new Note(text))
 }
 
 NoteController.prototype.insertion = function(){
@@ -18,7 +18,6 @@ exports.NoteController = NoteController
 
 })(this)
 
-var controller = new NoteController(new newNoteBook)
+var controller = new NoteController(new NoteBook)
 controller.saveNotes("controller test")
 controller.saveNotes("another controller test")
-// controller.insertion()
